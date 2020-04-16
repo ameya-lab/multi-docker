@@ -1,0 +1,42 @@
+{
+    "AWSEBDockerrunversion": 2,
+    "containerdefinations": [
+        {
+            "name": "client",
+            "image": "ameyad22/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            
+            "name": "server",
+            "image": "ameyad22/multi-server",
+            "hostname": "api",
+            "essential": false
+        
+        },
+        {
+
+            "name": "worker",
+            "image": "ameyad22/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        
+        },
+        {
+         
+            "name": "nginx",
+            "image": "ameyad22/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "server"]
+            
+        }
+    ]
+}
