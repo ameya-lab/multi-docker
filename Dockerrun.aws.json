@@ -1,18 +1,20 @@
 {
-    "AWSEBDockerrunversion": 2,
+    "AWSEBDockerrunVersion": 2,
     "containerdefinations": [
         {
             "name": "client",
             "image": "ameyad22/multi-client",
             "hostname": "client",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             
             "name": "server",
             "image": "ameyad22/multi-server",
             "hostname": "api",
-            "essential": false
+            "essential": false,
+            "memory": 128
         
         },
         {
@@ -20,7 +22,8 @@
             "name": "worker",
             "image": "ameyad22/multi-worker",
             "hostname": "worker",
-            "essential": false
+            "essential": false,
+            "memory": 128
         
         },
         {
@@ -35,7 +38,8 @@
                     "containerPort": 80
                 }
             ],
-            "links": ["client", "server"]
+            "links": ["client", "server"],
+            "memory": 128
             
         }
     ]
